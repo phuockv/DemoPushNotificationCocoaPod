@@ -30,8 +30,15 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'DemoPushNotificationCocoaPod/Classes/**/*'
-  
+s.dependency 'AWSCore', '~> 2.7.0'
+s.dependency 'AWSPinpoint', '~> 2.7.0'
+s.dependency 'AWSAuthCore', '~> 2.7.0'
+s.dependency 'AWSMobileClient', '~> 2.7.0'
+s.dependency 'AWSCognitoIdentityProvider', '~> 2.7.0'
+s.dependency 'AWSCognitoIdentityProviderASF','~> 1.0.1'
+s.platform     = :ios, '9.2'
+s.swift_version = '4.2'
+
   # s.resource_bundles = {
   #   'DemoPushNotificationCocoaPod' => ['DemoPushNotificationCocoaPod/Assets/*.png']
   # }

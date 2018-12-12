@@ -28,10 +28,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0DB87575EEF03F6520A37FED /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		0DB87575EEF03F6520A37FED /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		1CC8FB272B73A063755ED6B2 /* Pods_DemoPushNotificationCocoaPod_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoPushNotificationCocoaPod_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D68AF01CB6A339D6063EF37 /* Pods-DemoPushNotificationCocoaPod_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoPushNotificationCocoaPod_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoPushNotificationCocoaPod_Example/Pods-DemoPushNotificationCocoaPod_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		50E91ED97C15B9E67399CCC4 /* DemoPushNotificationCocoaPod.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = DemoPushNotificationCocoaPod.podspec; path = ../DemoPushNotificationCocoaPod.podspec; sourceTree = "<group>"; };
+		50E91ED97C15B9E67399CCC4 /* DemoPushNotificationCocoaPod.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DemoPushNotificationCocoaPod.podspec; path = ../DemoPushNotificationCocoaPod.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		607FACD01AFB9204008FA782 /* DemoPushNotificationCocoaPod_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoPushNotificationCocoaPod_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,7 +45,7 @@
 		66928664742B021A9775F6FD /* Pods-DemoPushNotificationCocoaPod_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoPushNotificationCocoaPod_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoPushNotificationCocoaPod_Tests/Pods-DemoPushNotificationCocoaPod_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B8C2B01436BE7DDC422BC1BD /* Pods-DemoPushNotificationCocoaPod_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoPushNotificationCocoaPod_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoPushNotificationCocoaPod_Tests/Pods-DemoPushNotificationCocoaPod_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C49CD2AD4314DC91AF5C5990 /* Pods-DemoPushNotificationCocoaPod_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoPushNotificationCocoaPod_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoPushNotificationCocoaPod_Example/Pods-DemoPushNotificationCocoaPod_Example.release.xcconfig"; sourceTree = "<group>"; };
-		D6189CFEAE83391B7E83534E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		D6189CFEAE83391B7E83534E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F440F3DAC98EE0764A895E3F /* Pods_DemoPushNotificationCocoaPod_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoPushNotificationCocoaPod_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -286,22 +286,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DemoPushNotificationCocoaPod_Example/Pods-DemoPushNotificationCocoaPod_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AWSAuthCore/AWSAuthCore.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework",
-				"${BUILT_PRODUCTS_DIR}/AWSPinpoint/AWSPinpoint.framework",
 				"${BUILT_PRODUCTS_DIR}/DemoPushNotificationCocoaPod/DemoPushNotificationCocoaPod.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileClient.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSPinpoint.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DemoPushNotificationCocoaPod.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

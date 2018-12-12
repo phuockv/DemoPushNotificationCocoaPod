@@ -2,6 +2,8 @@ platform :ios, '9.2'
 use_modular_headers!
 use_frameworks!
 
+
+
 target 'DemoPushNotificationCocoaPod_Example' do
     pod 'DemoPushNotificationCocoaPod', :path => '../'
     pod 'AWSCore', '~> 2.7.0',:modular_headers => true
