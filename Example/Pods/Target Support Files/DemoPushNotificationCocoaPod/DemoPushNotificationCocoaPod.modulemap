@@ -1,0 +1,6 @@
+framework module DemoPushNotificationCocoaPod {
+  umbrella header "DemoPushNotificationCocoaPod-umbrella.h"
+
+  export *
+  module * { export * }
+}
