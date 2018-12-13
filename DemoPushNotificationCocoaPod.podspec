@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DemoPushNotificationCocoaPod'
-  s.version          = '0.1.5'
+  s.version          = '0.1.6'
   s.summary          = 'A short description of DemoPushNotificationCocoaPod.'
 
 # This description is used to generate tags and improve search results.
@@ -35,7 +35,7 @@ s.dependency 'AWSCognitoIdentityProvider', '~> 2.7.0'
 s.dependency 'AWSCognitoIdentityProviderASF','~> 1.0.1'
 s.source_files = 'DemoPushNotificationCocoaPod/Classes/**/*.swift'
 s.platform     = :ios, '9.0'
-s.swift_version = '4.1'
+s.swift_version = '4.0'
 
   # s.resource_bundles = {
   #   'DemoPushNotificationCocoaPod' => ['DemoPushNotificationCocoaPod/Assets/*.png']
