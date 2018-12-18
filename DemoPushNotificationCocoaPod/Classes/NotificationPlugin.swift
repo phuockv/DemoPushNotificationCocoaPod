@@ -22,7 +22,8 @@ import UserNotifications
 
 @objc public class NotificationPlugin: NSObject ,UNUserNotificationCenterDelegate{
     var pinpoint: AWSPinpoint?
-    @objc public func registerForPushNotifications(didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    
+    @objc public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let error = error {
                 print("Error initializing AWSMobileClient: \(error.localizedDescription)")
@@ -44,16 +45,23 @@ import UserNotifications
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
                 (granted, error) in
                 print("Permission granted: \(granted)")
+                
                 // 1. Check if permission granted
-                guard granted else { return }
+                guard granted else {
+                    return
+                    
+                }
+                
                 // 2. Attempt registration for remote notifications on the main thread
                 DispatchQueue.main.async {
                     UIApplication.shared.registerForRemoteNotifications()
+                    
                 }
             }
         } else {
             // Fallback on earlier versions
         }
+        return true
     }
     
     @objc public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -66,6 +74,11 @@ import UserNotifications
         // 2. Print device token to use for PNs payloads
         print("Device Token: \(token)")
     }
+    public func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(error.localizedDescription)
+    }
+    
+    
     
     @objc public func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if let aps = userInfo["aps"] as? NSDictionary {
