@@ -102,5 +102,9 @@ import UserNotifications
         
     }
     
+    @objc public func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("didFailToRegisterForRemoteNotificationsWithError")
+    }
+    
 }
 
