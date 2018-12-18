@@ -20,7 +20,7 @@ import AWSPinpoint
 import AWSMobileClient
 import UserNotifications
 
-@objc public class NotificationPlugin: NSObject ,UNUserNotificationCenterDelegate{
+@objc public class NotificationPlugin: NSObject ,UNUserNotificationCenterDelegate, UIApplicationDelegate {
     var pinpoint: AWSPinpoint?
     
     @objc public func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
