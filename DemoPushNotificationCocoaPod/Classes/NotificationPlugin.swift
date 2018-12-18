@@ -20,6 +20,7 @@ import AWSPinpoint
 import AWSMobileClient
 import UserNotifications
 
+@UIApplicationMain
 @objc public class NotificationPlugin: NSObject ,UNUserNotificationCenterDelegate, UIApplicationDelegate {
     var pinpoint: AWSPinpoint?
     
