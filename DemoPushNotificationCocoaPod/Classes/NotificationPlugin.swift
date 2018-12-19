@@ -20,6 +20,8 @@ import AWSPinpoint
 import AWSMobileClient
 import UserNotifications
 
+@UIApplicationMain
+
 @objc public class NotificationPlugin: NSObject, UNUserNotificationCenterDelegate, UIApplicationDelegate {
     @objc open var pinpoint: AWSPinpoint?
     @objc public func registerForPushNotifications(_ application: UIApplication,didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
@@ -59,7 +61,7 @@ import UserNotifications
         }
     }
     
-    @objc public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+     public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         pinpoint!.notificationManager.interceptDidRegisterForRemoteNotifications(
             withDeviceToken: deviceToken)
         let tokenParts = deviceToken.map { data -> String in
@@ -70,7 +72,7 @@ import UserNotifications
         print("Device Token: \(token)")
     }
     
-    @objc public func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+     public func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if let aps = userInfo["aps"] as? NSDictionary {
             if let alert = aps["alert"] as? NSDictionary {
                 let body = alert["body"] as? String
@@ -92,7 +94,7 @@ import UserNotifications
         
     }
     
-    @objc public func applicationDidEnterBackground(_ application: UIApplication) {
+    public func applicationDidEnterBackground(_ application: UIApplication) {
         if let targetingClient = pinpoint?.targetingClient {
             targetingClient.addAttribute(["science", "politics", "travel"], forKey: "interests")
             targetingClient.updateEndpointProfile()
@@ -102,7 +104,7 @@ import UserNotifications
         
     }
     
-    @objc public func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+     public func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("didFailToRegisterForRemoteNotificationsWithError")
     }
     
