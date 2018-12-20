@@ -1,35 +1,16 @@
-//
-//  hello.swift
-//  Pods
-//
-//  Created by dev on 12/10/18.
-//
-
-//
-//  pluginPushNotification.swift
-//  pluginPushNotification
-//
-//  Created by dev on 11/29/18.
-//  Copyright © 2018 pluginPushNotification. All rights reserved.
-//
-
 import Foundation
 import AWSCore
-
 import AWSPinpoint
 import AWSMobileClient
 import UserNotifications
-
-@UIApplicationMain
-
 @objc public class NotificationPlugin: NSObject, UNUserNotificationCenterDelegate, UIApplicationDelegate {
     @objc open var pinpoint: AWSPinpoint?
-    @objc public func registerForPushNotifications(_ application: UIApplication,didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    @objc public func registerForPushNotifications(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let error = error {
-                print("Error initializing AWSMobileClient: \(error.localizedDescription)")
+                print("Error initializing AWSMobileClient: (error.localizedDescription)")
             } else if let userState = userState {
-                print("AWSMobileClient initialized. Current UserState: \(userState.rawValue)")
+                print("AWSMobileClient initialized. Current UserState: (userState.rawValue)")
             }
         }
         
@@ -46,7 +27,7 @@ import UserNotifications
         if #available(iOS 10.0, *) {
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
                 (granted, error) in
-                print("Permission granted: \(granted)")
+                print("Permission granted: (granted)")
                 // 1. Check if permission granted
                 guard granted else { return }
                 // 2. Attempt registration for remote notifications on the main thread
@@ -57,22 +38,15 @@ import UserNotifications
         } else {
             // Fallback on earlier versions
             print("Fallback on earlier versions")
-
         }
     }
     
-     public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    @objc public func didRegisterForRemoteNotificationsWithDeviceToken(deviceToken: Data) {
         pinpoint!.notificationManager.interceptDidRegisterForRemoteNotifications(
             withDeviceToken: deviceToken)
-        let tokenParts = deviceToken.map { data -> String in
-            return String(format: "%02.2hhx", data)
-        }
-        let token = tokenParts.joined()
-        // 2. Print device token to use for PNs payloads
-        print("Device Token: \(token)")
     }
     
-     public func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    @objc  public func didReceiveRemoteNotification(application: UIApplication,  userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if let aps = userInfo["aps"] as? NSDictionary {
             if let alert = aps["alert"] as? NSDictionary {
                 let body = alert["body"] as? String
@@ -91,22 +65,13 @@ import UserNotifications
                 }
             }
         }
-        
     }
-    
-    public func applicationDidEnterBackground(_ application: UIApplication) {
+    @objc public func applicationDidEnterBackground() {
         if let targetingClient = pinpoint?.targetingClient {
             targetingClient.addAttribute(["science", "politics", "travel"], forKey: "interests")
             targetingClient.updateEndpointProfile()
             let endpointId = targetingClient.currentEndpointProfile().endpointId
-            print("Updated custom attributes for endpoint: \(endpointId)")
+            print("Updated custom attributes for endpoint: (endpointId)")
         }
-        
     }
-    
-     public func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("didFailToRegisterForRemoteNotificationsWithError")
-    }
-    
 }
-
