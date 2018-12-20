@@ -5,7 +5,7 @@ import AWSMobileClient
 import UserNotifications
 @objc public class NotificationPlugin: NSObject, UNUserNotificationCenterDelegate, UIApplicationDelegate {
     @objc open var pinpoint: AWSPinpoint?
-    @objc public func registerForPushNotifications(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    @objc public func registerForPushNotifications(_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let error = error {
                 print("Error initializing AWSMobileClient: (error.localizedDescription)")
@@ -41,12 +41,12 @@ import UserNotifications
         }
     }
     
-    @objc public func didRegisterForRemoteNotificationsWithDeviceToken(deviceToken: Data) {
+    @objc public func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: Data) {
         pinpoint!.notificationManager.interceptDidRegisterForRemoteNotifications(
             withDeviceToken: deviceToken)
     }
     
-    @objc  public func didReceiveRemoteNotification(application: UIApplication,  userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    @objc  public func didReceiveRemoteNotification(_ application: UIApplication,_ userInfo: [AnyHashable : Any],_ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if let aps = userInfo["aps"] as? NSDictionary {
             if let alert = aps["alert"] as? NSDictionary {
                 let body = alert["body"] as? String
