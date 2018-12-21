@@ -19,8 +19,9 @@ import UserNotifications
 //
 //    }
 //
+    var pinpoint: AWSPinpoint?
     @objc public func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: String) {
-         var pinpoint: AWSPinpoint?
+        
 
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let error = error {
