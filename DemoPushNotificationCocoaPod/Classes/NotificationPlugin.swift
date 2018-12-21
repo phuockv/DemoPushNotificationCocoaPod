@@ -41,37 +41,10 @@ import UserNotifications
         }
     }
     
-    @objc public func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: Data) {
+    @objc public func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: String) {
+        let dataToken = Data(deviceToken.utf8)
         pinpoint!.notificationManager.interceptDidRegisterForRemoteNotifications(
-            withDeviceToken: deviceToken)
+            withDeviceToken: dataToken)
     }
     
-    @objc  public func didReceiveRemoteNotification(_ application: UIApplication,_ userInfo: [AnyHashable : Any],_ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        if let aps = userInfo["aps"] as? NSDictionary {
-            if let alert = aps["alert"] as? NSDictionary {
-                let body = alert["body"] as? String
-                let title = alert["title"] as? String
-                pinpoint!.notificationManager.interceptDidReceiveRemoteNotification(
-                    userInfo, fetchCompletionHandler: completionHandler)
-                
-                if (application.applicationState == .active) {
-                    let alert = UIAlertController(title: title,
-                                                  message: body,
-                                                  preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    
-                    UIApplication.shared.keyWindow?.rootViewController?.present(
-                        alert, animated: true, completion:nil)
-                }
-            }
-        }
-    }
-    @objc public func applicationDidEnterBackground() {
-        if let targetingClient = pinpoint?.targetingClient {
-            targetingClient.addAttribute(["science", "politics", "travel"], forKey: "interests")
-            targetingClient.updateEndpointProfile()
-            let endpointId = targetingClient.currentEndpointProfile().endpointId
-            print("Updated custom attributes for endpoint: (endpointId)")
-        }
-    }
 }
