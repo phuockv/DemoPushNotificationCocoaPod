@@ -240,7 +240,7 @@
 		D1FC8F680BC6C84CA62DCF710770CAFE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6C515B767E96387CD469A8A478F84A9 /* Foundation.framework */; };
 		D5A99D56BD1275B9AEC71154DCCB45A8 /* AWSURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = A157694CD4473E5ADA8DDF79C400DE05 /* AWSURLRequestSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D72D79CDE2F40255DE006655E36FFD6F /* AWSDDASLLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C0E7E5F36A5C57B895D414EAC58897A /* AWSDDASLLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D73B6EDA21C0FCB5002AEF7F /* NotificationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B6ED621C0F7A1002AEF7F /* NotificationPlugin.swift */; };
+		D7C4680621CD0AE900EE0CAE /* NotificationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73B6ED621C0F7A1002AEF7F /* NotificationPlugin.swift */; };
 		D864CD29350B7119AFA0BB0C76749425 /* AWSPinpointSessionClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 26D8513E5345FDFAC487814FBB84907F /* AWSPinpointSessionClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D869B19D03B1A8CCD5A8CD02160C27A0 /* AWSUIConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B3D5D82BE0CCC2C166AFC9583B6A02A /* AWSUIConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D9287F37663377D152C707AC28255037 /* aws_tommath_superclass.h in Headers */ = {isa = PBXBuildFile; fileRef = 82B2E9B0E61933DB4E4D6BD0CE6DE470 /* aws_tommath_superclass.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -1917,7 +1917,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC592E6EDDD0767E8D1ED04993125F86 /* Pods-DemoPushNotificationCocoaPod_Example-dummy.m in Sources */,
-				D73B6EDA21C0FCB5002AEF7F /* NotificationPlugin.swift in Sources */,
+				D7C4680621CD0AE900EE0CAE /* NotificationPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

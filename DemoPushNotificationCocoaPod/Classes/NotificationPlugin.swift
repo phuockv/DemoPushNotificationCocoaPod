@@ -4,8 +4,24 @@ import AWSPinpoint
 import AWSMobileClient
 import UserNotifications
 @objc public class NotificationPlugin: NSObject, UNUserNotificationCenterDelegate, UIApplicationDelegate {
-    
-    @objc public func didRegisterForRemoteNotificationsWithDeviceToken1(_ deviceToken: String) {
+//    @objc public func registerForPushNotifications(_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+//        AWSMobileClient.sharedInstance().initialize { (userState, error) in
+//            if let error = error {
+//                print("Error initializing AWSMobileClient: (error.localizedDescription)")
+//            } else if let userState = userState {
+//                print("AWSMobileClient initialized. Current UserState: (userState.rawValue)")
+//            }
+//        }
+//
+//        // Initialize Pinpoint
+//        let pinpointConfiguration = AWSPinpointConfiguration.defaultPinpointConfiguration(launchOptions: launchOptions)
+//        pinpoint = AWSPinpoint(configuration: pinpointConfiguration)
+//
+//    }
+//
+    @objc public func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: String) {
+         var pinpoint: AWSPinpoint?
+
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let error = error {
                 print("Error initializing AWSMobileClient: (error.localizedDescription)")
@@ -16,7 +32,7 @@ import UserNotifications
         
         // Initialize Pinpoint
         let pinpointConfiguration = AWSPinpointConfiguration.defaultPinpointConfiguration(launchOptions: nil)
-        let pinpoint = AWSPinpoint(configuration: pinpointConfiguration)
+         pinpoint = AWSPinpoint(configuration: pinpointConfiguration)
         let dataToken = Data(deviceToken.utf8)
         pinpoint!.notificationManager.interceptDidRegisterForRemoteNotifications(
             withDeviceToken: dataToken)
