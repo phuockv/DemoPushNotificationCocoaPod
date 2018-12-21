@@ -33,7 +33,7 @@ s.dependency 'AWSAuthCore', '~> 2.7.0'
 s.dependency 'AWSMobileClient', '~> 2.7.0'
 s.dependency 'AWSCognitoIdentityProvider', '~> 2.7.0'
 s.dependency 'AWSCognitoIdentityProviderASF','~> 1.0.1'
-s.source_files = 'DemoPushNotificationCocoaPod/Classes/**/*.swift'
+s.source_files = 'DemoPushNotificationCocoaPod/Classes/**/*{swift,json}'
 s.platform     = :ios, '9.0'
 s.swift_version = '4.0'
 
