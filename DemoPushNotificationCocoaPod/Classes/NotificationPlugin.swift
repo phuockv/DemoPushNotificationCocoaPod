@@ -4,36 +4,25 @@ import AWSPinpoint
 import AWSMobileClient
 import UserNotifications
 @objc public class NotificationPlugin: NSObject, UNUserNotificationCenterDelegate, UIApplicationDelegate {
-//    @objc public func registerForPushNotifications(_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
-//        AWSMobileClient.sharedInstance().initialize { (userState, error) in
-//            if let error = error {
-//                print("Error initializing AWSMobileClient: (error.localizedDescription)")
-//            } else if let userState = userState {
-//                print("AWSMobileClient initialized. Current UserState: (userState.rawValue)")
-//            }
-//        }
-//
-//        // Initialize Pinpoint
-//        let pinpointConfiguration = AWSPinpointConfiguration.defaultPinpointConfiguration(launchOptions: launchOptions)
-//        pinpoint = AWSPinpoint(configuration: pinpointConfiguration)
-//
-//    }
-//
-    var pinpoint: AWSPinpoint?
-    @objc public func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: String) {
-        
+ @objc public var pinpoint: AWSPinpoint?
 
+    @objc public func registerForPushNotifications(_ application: UIApplication,_ launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
-            if let error = error {
+            if error != nil {
                 print("Error initializing AWSMobileClient: (error.localizedDescription)")
-            } else if let userState = userState {
+            } else if userState != nil {
                 print("AWSMobileClient initialized. Current UserState: (userState.rawValue)")
             }
         }
-        
+
         // Initialize Pinpoint
-        let pinpointConfiguration = AWSPinpointConfiguration.defaultPinpointConfiguration(launchOptions: nil)
-         pinpoint = AWSPinpoint(configuration: pinpointConfiguration)
+        let pinpointConfiguration = AWSPinpointConfiguration.defaultPinpointConfiguration(launchOptions: launchOptions)
+        pinpoint = AWSPinpoint(configuration: pinpointConfiguration)
+
+    }
+
+    @objc public func didRegisterForRemoteNotificationsWithDeviceToken(_ deviceToken: String) {
+
         let dataToken = Data(deviceToken.utf8)
         pinpoint!.notificationManager.interceptDidRegisterForRemoteNotifications(
             withDeviceToken: dataToken)
