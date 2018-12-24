@@ -670,7 +670,6 @@
 		D71ADCB5390D6C64515BD54E50BD2C30 /* AWSXMLWriter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSXMLWriter.m; path = AWSCore/XMLWriter/AWSXMLWriter.m; sourceTree = "<group>"; };
 		D73B6ED621C0F7A1002AEF7F /* NotificationPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationPlugin.swift; path = DemoPushNotificationCocoaPod/Classes/NotificationPlugin.swift; sourceTree = "<group>"; };
 		D798C7F139CB8E20D4B3FA3033D99AB0 /* AWSPinpointNotificationManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AWSPinpointNotificationManager.m; path = AWSPinpoint/AWSPinpointNotificationManager.m; sourceTree = "<group>"; };
-		D7C77C5F21D07FED008984C1 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = "<group>"; };
 		D7EE409BE1828DC0EB96D2F509A8D478 /* Fabric+FABKits.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Fabric+FABKits.h"; path = "AWSCore/Fabric/Fabric+FABKits.h"; sourceTree = "<group>"; };
 		D82C52B3DA633B1DD2B91900AC0466C5 /* NSError+AWSMTLModelException.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+AWSMTLModelException.h"; path = "AWSCore/Mantle/NSError+AWSMTLModelException.h"; sourceTree = "<group>"; };
 		D8983D4F3426DD10D34A09B879348FC7 /* Pods-DemoPushNotificationCocoaPod_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DemoPushNotificationCocoaPod_Example-dummy.m"; sourceTree = "<group>"; };
@@ -958,7 +957,6 @@
 		8548D62C232A1317E2B76F39191190E6 /* DemoPushNotificationCocoaPod */ = {
 			isa = PBXGroup;
 			children = (
-				D7C77C5F21D07FED008984C1 /* awsconfiguration.json */,
 				D73B6ED621C0F7A1002AEF7F /* NotificationPlugin.swift */,
 				6FC78BA6211249B63A0E4345E838D186 /* Pod */,
 				829D09B800FA98B238D070BD2C2B6530 /* Support Files */,
